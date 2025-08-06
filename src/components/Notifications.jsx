@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './notifications.css';
 import logo from '../assets/tut-logo.jpg';
 
@@ -52,13 +52,22 @@ const CheckIcon = () => (
 );
 
 const Notifications = () => {
+  const [viewMessage, setViewMessage] = useState(null);
+
+  const closeModal = () => setViewMessage(null);
+
   return (
     <div className="notifications-container">
       <header className="notifications-header">
-        <img src={logo} alt="Tshwane University of Technology Logo" className="logo" />
-        <span className="scrs-text">SCRS</span>
+        <div className="logo-scrs-container">
+          <img src={logo} alt="Tshwane University of Technology Logo" className="logo" />
+          <span className="scrs-text">SCRS</span>
+        </div>
       </header>
-      <h2 className="notifications-title">Notifications</h2>
+      <span>
+        <h2 className="notifications-title">Notifications</h2>
+      </span>
+
       <div className="notifications-list">
         {notificationsData.map(({ id, message, color }) => (
           <div key={id} className="notification-item">
@@ -66,13 +75,23 @@ const Notifications = () => {
               <BellIcon color={color} />
             </div>
             <div className="notification-message">{message}</div>
-            <button className="view-button">view</button>
+            <button className="view-button" onClick={() => setViewMessage(message)}>view</button>
             <div className="check-icon">
               <CheckIcon />
             </div>
           </div>
         ))}
       </div>
+
+      {viewMessage && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal-content" onClick={e => e.stopPropagation()}>
+            <p>{viewMessage}</p>
+            <button className="close-button" onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
+
       <div className="back-arrow">
         <svg
           width="30"

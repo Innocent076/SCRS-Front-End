@@ -5,7 +5,9 @@ import Notifications from './components/Notifications.jsx'
 
 function App() {
   return(
-    <Notifications />
+    <div className='content-space'>
+      <Loginpage />
+    </div>
   );
 }
 

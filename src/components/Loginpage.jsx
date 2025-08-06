@@ -7,8 +7,11 @@ const Loginpage = () => {
 
   return (
     <div className="login-container">
-      <div className="login-form">
-        <div className="title-section">
+      <div className='login-content'>
+          <div className="login-form">
+
+          <div className='left-part'>
+            <div className="title-section">
           <h3 className="scrs-title">SCRS</h3>
           <p className="subtitle">Website Application</p>
         </div>
@@ -39,9 +42,13 @@ const Loginpage = () => {
         <div className="forgot-password">forgot password?</div>
         <button className="login-button">LOGIN</button>
       </div>
+          </div>  
+        
       <div className="logo-section">
         <img src={logo} alt="Tshwane University of Technology Logo" className="logo-image" />
       </div>
+      </div>
+      
     </div>
   );
 };

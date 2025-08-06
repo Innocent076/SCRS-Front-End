@@ -1,20 +1,35 @@
 .notifications-container {
-  max-width: 600px;
-  margin: 2rem auto;
+  max-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  background-color: #fff;
+  margin: 0;
   font-family: Arial, sans-serif;
-  padding: 0 1rem;
+  padding: 0;
 }
 
 .notifications-header {
+  position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.logo-scrs-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo {
   width: 40px;
   height: auto;
-  margin-right: 0.5rem;
+  margin: 0;
 }
 
 .scrs-text {
@@ -27,10 +42,12 @@
   color: #004aad;
   font-weight: bold;
   font-size: 1.5rem;
-  border-bottom: 2px solid #004aad;
+  border-bottom: 1px solid #004aad;
   padding-bottom: 0.3rem;
   margin-bottom: 1rem;
+  text-align: center;
 }
+
 
 .notifications-list {
   display: flex;
@@ -79,8 +96,51 @@
 }
 
 .back-arrow {
-  margin-top: 2rem;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
   cursor: pointer;
   width: 30px;
   height: 30px;
+  margin: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.close-button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #004aad;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+  background-color: #00337a;
 }
